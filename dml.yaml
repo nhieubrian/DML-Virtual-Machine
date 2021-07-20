@@ -65,10 +65,11 @@ spec:
           name: dml-cache-vol
         - mountPath: /home/user
           name: dml-root-vol
-        - mountPath: /home/user/Desktop/seaweed
+        - mountPath: /sw
           name: dml-sw-vol
         - mountPath: /dev/shm
           name: dshm
+      restartPolicy: Never
       volumes:
         - name: dml-cache-vol
           persistentVolumeClaim:
