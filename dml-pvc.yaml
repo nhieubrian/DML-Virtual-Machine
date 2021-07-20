@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: xgl-cache-vol
-  namespace: suncave
+  name: dml-cache-vol
+  namespace: ucsd-digital-media-lab
 spec:
   storageClassName: rook-ceph-block
   accessModes:
