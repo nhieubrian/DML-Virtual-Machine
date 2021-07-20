@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: suncave-28
+#      nodeSelector:
+#        kubernetes.io/hostname: suncave-28
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
@@ -27,7 +27,7 @@ spec:
       priorityClassName: owner
       containers:
       - name: dml
-        image: gitlab.nrp-nautilus.io/nhieubrian/novnc-digital-media-lab
+        image: gitlab-registry.nrp-nautilus.io/ar-noc/docker-nvidia-glx-desktop
 #        imagePullPolicy: Always
         env:
         - name: TZ
@@ -65,6 +65,8 @@ spec:
           name: dml-cache-vol
         - mountPath: /home/user
           name: dml-root-vol
+        - mountPath: /home/user/Desktop/seaweed
+          name: dml-sw-vol
         - mountPath: /dev/shm
           name: dshm
       volumes:
@@ -74,6 +76,9 @@ spec:
         - name: dml-root-vol
           persistentVolumeClaim:
             claimName: dml-root-vol
+        - name: dml-sw-vol
+          persistentVolumeClaim:
+            claimName: dml-sw-vol
         - name: dshm
           emptyDir:
             medium: Memory
