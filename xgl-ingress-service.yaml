@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xgl
+  namespace: suncave
+  labels:
+    app: xgl
+spec:
+  selector:
+    app: xgl
+  ports:
+  - name: xgl
+    protocol: TCP
+    port: 5901
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: xgl-ingress
+  namespace: suncave
+  annotations:
+    traefik.ingress.kubernetes.io/router.tls: ""
+spec:
+  rules:
+  - host: xgl.nautilus.optiputer.net
+    http:
+      paths:
+      - backend:
+          serviceName: xgl
+          servicePort: 5901
