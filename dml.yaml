@@ -14,7 +14,7 @@ spec:
         app: dml
     spec:
       nodeSelector:
-        kubernetes.io/hostname: k8s-chase-ci-06.calit2.optiputer.net
+        kubernetes.io/hostname: suncave-28
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
