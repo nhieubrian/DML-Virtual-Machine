@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xgl
+  namespace: suncave
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xgl
+  template:
+    metadata:
+      labels:
+        app: xgl
+    spec:
+#      nodeSelector:
+#        kubernetes.io/hostname: k8s-chase-ci-06.calit2.optiputer.net
+      tolerations: 
+        - key: nautilus.io/suncave
+          effect: NoSchedule
+          operator: Exists
+        - key: nautilus.io/large-gpu
+          effect: NoSchedule
+          operator: Equal
+          value: "true"
+      hostname: xgl
+      priorityClassName: owner
+      containers:
+      - name: xgl
+        image: gitlab-registry.nrp-nautilus.io/ar-noc/docker-nvidia-glx-desktop
+#        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: "UTC"
+        - name: SIZEW
+          value: "1920"
+        - name: SIZEH
+          value: "1200"
+        - name: CDEPTH
+          value: "24"
+        - name: SHARED
+          value: "TRUE"
+        - name: VNCPASS
+          value: "vncpasswd"
+        - name: VIDEO_PORT
+          value: "DFP"
+        stdin: true
+        tty: true
+        ports:
+          - containerPort: 5901
+            protocol: TCP
+        resources:
+          limits:
+            memory: 32Gi
+            cpu: "16"
+            nvidia.com/gpu: 1
+            smarter-devices/tty63: 1
+          requests:
+            memory: 32Gi
+            cpu: "16"
+            nvidia.com/gpu: 1
+            smarter-devices/tty63: 1
+        volumeMounts:
+        - mountPath: /cache
+          name: xgl-cache-vol
+        - mountPath: /home/user
+          name: xgl-root-vol
+        - mountPath: /dev/shm
+          name: dshm
+      volumes:
+        - name: xgl-cache-vol
+          persistentVolumeClaim:
+            claimName: xgl-cache-vol
+        - name: xgl-root-vol
+          persistentVolumeClaim:
+            claimName: xgl-root-vol
+        - name: dshm
+          emptyDir:
+            medium: Memory
