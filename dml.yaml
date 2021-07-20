@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xgl
-  namespace: suncave
+  name: dml
+  namespace: ucsd-digital-media-lab
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xgl
+      app: dml
   template:
     metadata:
       labels:
-        app: xgl
+        app: dml
     spec:
 #      nodeSelector:
 #        kubernetes.io/hostname: k8s-chase-ci-06.calit2.optiputer.net
@@ -23,11 +23,11 @@ spec:
           effect: NoSchedule
           operator: Equal
           value: "true"
-      hostname: xgl
+      hostname: dml
       priorityClassName: owner
       containers:
-      - name: xgl
-        image: gitlab-registry.nrp-nautilus.io/ar-noc/docker-nvidia-glx-desktop
+      - name: dml
+        image: gitlab.nrp-nautilus.io/nhieubrian/novnc-digital-media-lab
 #        imagePullPolicy: Always
         env:
         - name: TZ
@@ -62,18 +62,18 @@ spec:
             smarter-devices/tty63: 1
         volumeMounts:
         - mountPath: /cache
-          name: xgl-cache-vol
+          name: dml-cache-vol
         - mountPath: /home/user
-          name: xgl-root-vol
+          name: dml-root-vol
         - mountPath: /dev/shm
           name: dshm
       volumes:
-        - name: xgl-cache-vol
+        - name: dml-cache-vol
           persistentVolumeClaim:
-            claimName: xgl-cache-vol
-        - name: xgl-root-vol
+            claimName: dml-cache-vol
+        - name: dml-root-vol
           persistentVolumeClaim:
-            claimName: xgl-root-vol
+            claimName: dml-root-vol
         - name: dshm
           emptyDir:
             medium: Memory
