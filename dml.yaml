@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: suncave-28
+#      nodeSelector:
+#        kubernetes.io/hostname: suncave-28
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
