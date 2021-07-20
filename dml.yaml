@@ -65,7 +65,7 @@ spec:
           name: dml-cache-vol
         - mountPath: /home/user
           name: dml-root-vol
-        - mountPath: /sw
+        - mountPath: /home/user/Desktop/seaweed
           name: dml-sw-vol
         - mountPath: /dev/shm
           name: dshm
