@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-#      nodeSelector:
-#        kubernetes.io/hostname: suncave-28
+      nodeSelector:
+        kubernetes.io/hostname: suncave-28
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
@@ -52,12 +52,12 @@ spec:
         resources:
           limits:
             memory: 32Gi
-            cpu: "16"
+            cpu: "8"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
           requests:
             memory: 32Gi
-            cpu: "16"
+            cpu: "8"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
         volumeMounts:
