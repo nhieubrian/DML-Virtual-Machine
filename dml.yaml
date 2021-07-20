@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-#      nodeSelector:
-#        kubernetes.io/hostname: k8s-chase-ci-06.calit2.optiputer.net
+      nodeSelector:
+        kubernetes.io/hostname: k8s-chase-ci-06.calit2.optiputer.net
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
