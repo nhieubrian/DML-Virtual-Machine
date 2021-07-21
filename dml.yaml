@@ -51,12 +51,12 @@ spec:
             protocol: TCP
         resources:
           limits:
-            memory: 512Gi
+            memory: 128Gi
             cpu: "2"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
           requests:
-            memory: 512Gi
+            memory: 128Gi
             cpu: "2"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
