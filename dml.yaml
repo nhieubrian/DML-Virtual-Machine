@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: prp-gpu-6.t2.ucsd.edu
+#      nodeSelector:
+#        kubernetes.io/hostname: prp-gpu-6.t2.ucsd.edu
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
@@ -51,12 +51,12 @@ spec:
             protocol: TCP
         resources:
           limits:
-            memory: 64Gi
+            memory: 512Gi
             cpu: "2"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
           requests:
-            memory: 64Gi
+            memory: 512Gi
             cpu: "2"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
