@@ -27,7 +27,7 @@ spec:
       priorityClassName: owner
       containers:
       - name: dml
-        image: gitlab-registry.nrp-nautilus.io/ar-noc/docker-nvidia-glx-desktop
+        image: gitlab-registry.nrp-nautilus.io/nhieubrian/novnc-digital-media-lab
 #        imagePullPolicy: Always
         env:
         - name: TZ
