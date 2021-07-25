@@ -82,9 +82,11 @@ RUN apt-get update && apt-get install -y \
         net-tools \
         ubuntu-mate-core \
         ubuntu-mate-desktop \
+        snap \
         mesa-utils \
         x11vnc \
         x11-apps && \
+
     # Remove Bluetooth packages that throw errors
     apt-get autoremove --purge -y blueman bluez bluez-cups pulseaudio-module-bluetooth && \
     rm -rf /var/lib/apt/lists/*
