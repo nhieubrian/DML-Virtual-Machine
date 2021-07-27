@@ -14,7 +14,7 @@ spec:
         app: dml
     spec:
       nodeSelector:
-        kubernetes.io/hostname: clu-fiona2.ucmerced.edu
+        kubernetes.io/hostname: osg-houston-stashcache.nrp.internet2.edu
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
@@ -53,12 +53,12 @@ spec:
           limits:
             memory: 64Gi
             cpu: "4"
-            nvidia.com/gpu: 2
+            nvidia.com/gpu: 1
             smarter-devices/tty63: 1
           requests:
             memory: 64Gi
             cpu: "4"
-            nvidia.com/gpu: 2
+            nvidia.com/gpu: 1
             smarter-devices/tty63: 1
         volumeMounts:
         - mountPath: /cache
