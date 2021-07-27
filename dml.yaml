@@ -13,8 +13,8 @@ spec:
       labels:
         app: dml
     spec:
-#      nodeSelector:
-#        kubernetes.io/hostname: prp-gpu-6.t2.ucsd.edu
+      nodeSelector:
+        kubernetes.io/hostname: osg-houston-stashcache.nrp.internet2.edu
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
