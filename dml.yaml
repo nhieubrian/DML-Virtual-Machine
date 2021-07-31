@@ -14,7 +14,7 @@ spec:
         app: dml
     spec:
       nodeSelector:
-        kubernetes.io/hostname: suncave-1
+        kubernetes.io/hostname: osg-houston-stashcache.nrp.internet2.edu
       tolerations: 
         - key: nautilus.io/suncave
           effect: NoSchedule
@@ -51,13 +51,13 @@ spec:
             protocol: TCP
         resources:
           limits:
-            memory: 64Gi
-            cpu: "4"
+            memory: 128Gi
+            cpu: "6"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
           requests:
-            memory: 64Gi
-            cpu: "4"
+            memory: 128Gi
+            cpu: "6"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
         volumeMounts:
