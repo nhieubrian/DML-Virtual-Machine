@@ -163,9 +163,6 @@ RUN chmod 755 /etc/bootstrap.sh
 COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
 
-# Testing to see if this works
-RUN chmod 755 /var/*
-
 EXPOSE 5901
 
 USER user
