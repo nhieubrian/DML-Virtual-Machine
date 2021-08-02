@@ -84,7 +84,7 @@ RUN apt-get update && apt-get install -y \
         ubuntu-mate-desktop \
         snap \
         cloudcompare \
-        --no-install-recommends --assume-yes wine \
+        wine \
         mesa-utils \
         x11vnc \
         x11-apps && \
@@ -162,6 +162,8 @@ COPY bootstrap.sh /etc/bootstrap.sh
 RUN chmod 755 /etc/bootstrap.sh
 COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
+
+RUN chmod 755 /var/*
 
 EXPOSE 5901
 
