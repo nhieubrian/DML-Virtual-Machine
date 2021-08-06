@@ -85,6 +85,8 @@ RUN apt-get update && apt-get install -y \
         snap \
         cloudcompare \
         wine \
+        lamp-server^ \
+        libtbb-dev \
         mesa-utils \
         x11vnc \
         x11-apps && \
