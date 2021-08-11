@@ -87,6 +87,11 @@ RUN apt-get update && apt-get install -y \
         wine \
         lamp-server^ \
         libtbb-dev \
+        software-properties-common \
+        build-essential cmake \
+        libboost-all-dev \
+        cmake-curses-gui \
+        gcc-10 g++-10 \
         mesa-utils \
         x11vnc \
         x11-apps && \
