@@ -65,8 +65,10 @@ spec:
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
         volumeMounts:
+          # If any changes are made to the yaml, these names will also change
         - mountPath: /cache
           name: dml2-cache-vol
+          # ^ Not the file name, but what is defined inside.
         - mountPath: /home/user
           name: dml2-root-vol
         - mountPath: /home/user/Desktop/seaweed
