@@ -52,11 +52,13 @@ spec:
           - containerPort: 5901
             protocol: TCP
         resources:
+          # lowest amount of resources that we want. MAX: 1 GPU
           limits:
             memory: 50Gi
             cpu: "6"
             nvidia.com/gpu: 1
             smarter-devices/tty63: 1
+          # If possible, grab up to this much
           requests:
             memory: 50Gi
             cpu: "6"
