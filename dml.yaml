@@ -14,6 +14,7 @@ spec:
         app: dml
     spec:
       nodeSelector:
+#       kubectl get nodes --show-labels | grep smarter
 #       kubernetes.io/hostname: osg-houston-stashcache.nrp.internet2.edu
         kubernetes.io/hostname: clu-fiona2.ucmerced.edu
       tolerations: 
