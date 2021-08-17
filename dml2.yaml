@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dml2
+  namespace: ucsd-digital-media-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dml2
+  template:
+    metadata:
+      labels:
+        app: dml2
+    spec:
+      nodeSelector:
+#       kubectl get nodes --show-labels | grep smarter
+#       kubernetes.io/hostname: osg-houston-stashcache.nrp.internet2.edu
+        kubernetes.io/hostname: clu-fiona2.ucmerced.edu
+      tolerations: 
+        - key: nautilus.io/suncave
+          effect: NoSchedule
+          operator: Exists
+        - key: nautilus.io/large-gpu
+          effect: NoSchedule
+          operator: Equal
+          value: "true"
+      hostname: dml2
+      priorityClassName: owner
+      containers:
+      - name: dml2
+        image: gitlab-registry.nrp-nautilus.io/nhieubrian/novnc-digital-media-lab:latest
+#        imagePullPolicy: Always
+        env:
+        - name: TZ
+          value: "UTC"
+        - name: SIZEW
+          value: "1920"
+        - name: SIZEH
+          value: "1200"
+        - name: CDEPTH
+          value: "24"
+        - name: SHARED
+          value: "TRUE"
+        - name: VNCPASS
+          value: "vncpasswd"
+        - name: VIDEO_PORT
+          value: "DFP"
+        stdin: true
+        tty: true
+        ports:
+          - containerPort: 5901
+            protocol: TCP
+        resources:
+          # lowest amount of resources that we want. MAX: 1 GPU
+          limits:
+            memory: 50Gi
+            cpu: "6"
+            nvidia.com/gpu: 1
+            smarter-devices/tty63: 1
+          # If possible, grab up to this much
+          requests:
+            memory: 50Gi
+            cpu: "6"
+            nvidia.com/gpu: 1
+            smarter-devices/tty63: 1
+        volumeMounts:
+        - mountPath: /cache
+          name: dml2-cache-vol
+        - mountPath: /home/user
+          name: dml2-root-vol
+        - mountPath: /home/user/Desktop/seaweed
+          name: dml2-sw-vol
+        - mountPath: /dev/shm
+          name: dshm
+      volumes:
+        - name: dml2-cache-vol
+          persistentVolumeClaim:
+            claimName: dml2-cache-vol
+        - name: dml2-root-vol
+          persistentVolumeClaim:
+            claimName: dml2-root-vol
+        - name: dml2-sw-vol
+          persistentVolumeClaim:
+            claimName: dml2-sw-vol
+        - name: dshm
+          emptyDir:
+            medium: Memory
