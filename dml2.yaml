@@ -70,7 +70,7 @@ spec:
           name: dml2-cache-vol
           # ^ Not the file name, but what is defined inside.
         - mountPath: /home/user
-          name: dml2-root-vol
+          name: dml-root-vol
         - mountPath: /home/user/Desktop/seaweed
           name: dml-sw-vol
         - mountPath: /dev/shm
@@ -79,9 +79,9 @@ spec:
         - name: dml2-cache-vol
           persistentVolumeClaim:
             claimName: dml2-cache-vol
-        - name: dml2-root-vol
+        - name: dml-root-vol
           persistentVolumeClaim:
-            claimName: dml2-root-vol
+            claimName: dml-root-vol
         - name: dml-sw-vol
           persistentVolumeClaim:
             claimName: dml-sw-vol
