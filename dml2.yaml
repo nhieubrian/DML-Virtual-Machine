@@ -80,9 +80,9 @@ spec:
         - name: dml2-root-vol
           persistentVolumeClaim:
             claimName: dml2-root-vol
-        - name: dml2-sw-vol
+        - name: dml-sw-vol
           persistentVolumeClaim:
-            claimName: dml2-sw-vol
+            claimName: dml-sw-vol
         - name: dshm
           emptyDir:
             medium: Memory
