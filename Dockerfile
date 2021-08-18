@@ -171,8 +171,6 @@ COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
 
 RUN chmod 755 /var/*
-RUN chmod 755 /home/user/Desktop/Bodie/*
-
 
 EXPOSE 5901
 
