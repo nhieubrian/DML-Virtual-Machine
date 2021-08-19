@@ -83,6 +83,8 @@ RUN apt-get update && apt-get install -y \
         ubuntu-mate-core \
         ubuntu-mate-desktop \
         snap \
+        apache2 \
+        tasksel \
         cloudcompare \
         wine \
         lamp-server^ \
