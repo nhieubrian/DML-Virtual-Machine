@@ -175,6 +175,7 @@ RUN chmod 755 /etc/supervisord.conf
 RUN chmod 755 /var/*
 
 EXPOSE 5901
+EXPOSE 80/tcp
 
 USER user
 WORKDIR /home/user
