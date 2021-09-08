@@ -34,11 +34,9 @@ spec:
           limits:
             memory: 4Gi
             cpu: 2
-            nvidia.com/gpu: 1
           requests:
             memory: 4Gi
             cpu: 2
-            nvidia.com/gpu: 1
       volumes:
         - name: apache2-config-volume
           configMap:
