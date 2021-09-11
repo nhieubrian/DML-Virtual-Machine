@@ -23,7 +23,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.tls: ""
 spec:
   rules:
-  - host: dml2.nautilus.optiputer.net
+  - host: dml2.nrp-nautilus.io
     http:
       paths:
       - backend:
