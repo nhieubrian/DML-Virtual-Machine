@@ -88,6 +88,7 @@ RUN apt-get update && apt-get install -y \
         cloudcompare \
         wine \
         lamp-server^ \
+        unzip \
         libtbb-dev \
         software-properties-common \
         build-essential cmake \
