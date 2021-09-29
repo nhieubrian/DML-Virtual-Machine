@@ -175,10 +175,6 @@ RUN chmod 755 /etc/supervisord.conf
 
 RUN chmod 777 /var/*
 
-RUN sudo systemctl enable seaweed.service
-RUN sudo service seaweed start
-
-
 EXPOSE 5901
 
 USER user
