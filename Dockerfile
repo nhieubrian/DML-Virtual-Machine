@@ -175,7 +175,6 @@ RUN chmod 755 /etc/supervisord.conf
 
 RUN chmod 777 /var/*
 
-RUN sudo systemctl daemon-reload
 RUN sudo systemctl enable seaweed.service
 RUN sudo service seaweed start
 
