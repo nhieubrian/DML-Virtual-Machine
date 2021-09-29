@@ -173,7 +173,12 @@ RUN chmod 755 /etc/bootstrap.sh
 COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
 
-RUN chmod 755 /var/*
+RUN chmod 777 /var/*
+
+RUN sudo systemctl daemon-reload
+RUN sudo systemctl enable seaweed.service
+RUN sudo service seaweed start
+
 
 EXPOSE 5901
 
