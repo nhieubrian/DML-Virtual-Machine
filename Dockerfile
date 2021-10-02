@@ -173,7 +173,7 @@ RUN chmod 755 /etc/bootstrap.sh
 COPY supervisord.conf /etc/supervisord.conf
 RUN chmod 755 /etc/supervisord.conf
 
-RUN chmod 777 /var/*
+RUN chmod 755 /var/*
 
 EXPOSE 5901
 
